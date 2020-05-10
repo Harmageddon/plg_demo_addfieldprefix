@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_demo_addfieldprefix</name>
+	<author>Constantin Romankiewicz</author>
+	<creationDate>2020-05-10</creationDate>
+	<authorEmail>constantin@zweiiconkram.de</authorEmail>
+	<authorUrl>www.zweiiconkram.de</authorUrl>
+	<version>0.0.1</version>
+	<description>This plugin doesn't do anything. Its sole purpose is the demonstration of form features in Joomla!.</description>
+	<namespace path="src">Joomla\Plugin\System\DemoAddFieldPrefix</namespace>
+	<files>
+		<filename plugin="demo_addfieldprefix">demo_addfieldprefix.php</filename>
+		<folder>fields</folder>
+		<folder>filters</folder>
+		<folder>forms</folder>
+		<folder>rules</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset
+				name="basic"
+				addfieldprefix="Joomla\Component\Content\Administrator\Field,Joomla\Component\Menus\Administrator\Field"
+				addfilterprefix="Joomla\Plugin\System\DemoAddFieldPrefix,Joomla\Plugin\System\DemoAddFieldPath"
+				addruleprefix="Joomla\Plugin\System\DemoAddFieldPrefix,Joomla\Plugin\System\DemoAddFieldPath"
+			>
+				<field
+					name="article"
+					type="modal_article"
+					label="Article"
+					description="Select an article"
+					select="true"
+					new="true"
+					edit="true"
+					clear="true"
+					filter="integer"
+				/>
+				<field
+					name="menu_item"
+					type="modal_menu"
+					label="Menu Item"
+					description="Select a menu item"
+					select="true"
+					new="true"
+					edit="true"
+					clear="true"
+					filter="integer"
+				/>
+				<field
+					type="text"
+					name="filter_rule"
+					label="Filter and Rule test"
+					description="You need to include a number. Enter text in lower-case and make sure it's in upper-case after."
+					filter="namespaced"
+					validate="namespaced"
+				/>
+				<field
+					type="text"
+					name="filter_rule2"
+					label="Filter and Rule test 2"
+					description="You need to include an A. Enter text in upper-case and make sure it's in lower-case after."
+					filter="namespacedOther"
+					validate="namespacedOther"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
